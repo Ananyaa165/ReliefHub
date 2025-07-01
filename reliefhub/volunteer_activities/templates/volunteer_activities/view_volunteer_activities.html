@@ -1,0 +1,28 @@
+{% extends 'temp/admin_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view_volunteer_activities</title>
+</head>
+<body>
+<center>
+	<h2 style="color: white">View Completed Activities</h2>
+	<table border="2"  class="table table-bordered">
+		<tr style="color: white">
+		<th>Activities id</th>
+		<th>Volunteer</th>
+		<th>Activities</th>
+	</tr>
+        {% for i in o %}
+	<tr style="color: white">
+		<td>{{ i.activity_id }}</td>
+		<td>{{ i.volunteer.volunteer_name }}</td>
+		<td>{{ i.activity }}</td>
+	</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}

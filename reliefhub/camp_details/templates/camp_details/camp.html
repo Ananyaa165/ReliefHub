@@ -1,0 +1,71 @@
+{% extends 'temp/camp_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>camp_details</title>
+    <style>
+        /* Add CSS for curved inputs */
+        input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+            border-radius: 15px; /* Makes the input fields curved */
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 500%;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Green background for the submit button */
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovering */
+        }
+        table {
+            width: 50%;
+        }
+        td {
+            padding: 10px;
+        }
+        body {
+            background-color: #333; /* Dark background */
+            color: white;
+        }
+        .form-control {
+            background-color: #fff; /* White background for input fields */
+            color: #000; /* Black text */
+        }
+    </style>
+</head>
+<body>
+<center>
+	<h2 style="color: white">Camp Details</h2>
+	<form method="post">
+        {% csrf_token %}
+		<table>
+			<tr>
+				<td><br>Camp name:</td>
+				<td><input type="text" name="name" class="form-control" required></td>
+			</tr>
+			<tr>
+				<td><br>Location:</td>
+				<td><input type="text" name="location" class="form-control" required></td>
+			</tr>
+			<tr>
+				<td><br>No of refugees:</td>
+				<td><input type="text" name="number" class="form-control" required></td>
+			</tr>
+			<tr>
+				<td><br>No of volunteers:</td>
+				<td><input type="text" name="numbers" class="form-control" required></td>
+			</tr>
+			<tr><td></td>
+				<td><br><input type="submit" name="submit" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+</center>
+</body>
+</html>
+{% endblock %}

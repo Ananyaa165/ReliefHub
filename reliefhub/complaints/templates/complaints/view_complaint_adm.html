@@ -1,0 +1,59 @@
+{% extends 'temp/admin_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>View complaints</title>
+    <style>
+        .table-wrapper {
+            width: 100%; /* Adjust as needed */
+            height: 400px; /* Fixed height for the vertical scroll */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional border */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%; /* Full width inside the container */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<center>
+	<h2 style="color: white">view & reply for complaints</h2>
+<div class="table table-responsive">
+    <div class="table-wrapper">
+{#	<table border="2" class="table table-bordered table-responsive table-striped table-responsive-bottom">#}
+<div style="overflow-x: auto; max-width: 100%;">
+  <table border="2" class="table table-bordered table-responsive table-striped table-responsive-bottom">
+		<tr style="color: white">
+			<th>Complaint id</th>
+			<th>Volunteer</th>
+			<th>Complaints</th>
+			<th>Reply</th>
+		</tr>
+        {% for i in o %}
+		<tr style="color: white">
+			<td>{{ i.complaint_id }}</td>
+			<td>{{ i.volunteer.volunteer_name}}</td>
+			<td>{{ i.complaint }}</td>
+			<td>{{ i.reply }}</td>
+			<td><a href="/complaint/reply/{{ i.complaint_id }}">Reply</a></td>
+		</tr>
+        {% endfor %}
+	</table>
+</div>
+    </div>
+</center>
+</body>
+</html>
+{% endblock %}

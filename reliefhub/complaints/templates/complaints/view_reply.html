@@ -1,0 +1,27 @@
+{% extends 'temp/volunteer_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>View reply</title>
+</head>
+<body>
+<center><h2 style="color: white">View Reply</h2>
+	<table border="2"  class="table table-bordered">
+		<tr style="color: white">
+			<th>Complaint id</th>
+			<th>Complaint</th>
+			<th>Reply</th>
+		</tr>
+        {% for i in o %}
+		<tr style="color: white">
+			<td>{{ i.complaint_id }}</td>
+			<td>{{ i.complaint }}</td>
+			<td>{{ i.reply}}</td>
+		</tr>
+        {% endfor %}
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}

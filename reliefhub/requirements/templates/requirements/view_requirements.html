@@ -1,0 +1,32 @@
+{% extends 'temp/public_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view_requirements</title>
+</head>
+<body><center>
+	<h2 style="color: white">View Requirements</h2>
+	<table border="2"  class="table table-bordered">
+		<tr style="color: white">
+			<th>Requirement id</th>
+			<th>Requirements</th>
+			<th>volunteer name</th>
+			<th>camp</th>
+			<th>Required quantity</th>
+		</tr>
+        {% for i in o %}
+		<tr style="color: white">
+			<td>{{ i.requirement_id }}</td>
+			<td>{{ i.requirements }}</td>
+			<td>{{ i.volunteer.volunteer_name }}</td>
+			<td>{{ i.camp.camp_name }}</td>
+			<td>{{ i.quantity }}</td>
+		</tr>
+        {% endfor %}
+		
+	</table>
+</center>
+</body>
+</html>
+{% endblock %}

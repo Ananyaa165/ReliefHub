@@ -1,0 +1,32 @@
+{% extends 'temp/volunteer_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>view_volunteer_scheduling</title>
+	</head>
+	<body>
+	<center><h2 style="color: white">View Volunteer Scheduling</h2>
+		<table border="2"  class="table table-bordered">
+			<tr style="color: white">
+				<th>Task id  </th>
+				<th>Volunteer  </th>
+                <th>Camp Name</th>
+				<th>Scheduled task  </th>
+				<th>Date </th>
+			</tr>
+            {% for i in o %}
+			<tr style="color: white">
+				<td>{{ i.task_id }}</td>
+				<td>{{ i.volunteer.volunteer_name }}</td>
+                <td>{{ i.volunteer.camp.camp_name }}</td>
+				<td>{{ i.scheduled_task }}</td>
+				<td>{{ i.date }}</td>
+			</tr>
+            {% endfor %}
+		</table>
+
+	</center>
+	</body>
+	</html>
+{% endblock %}

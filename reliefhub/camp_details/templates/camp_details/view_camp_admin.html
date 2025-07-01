@@ -1,0 +1,32 @@
+{%  extends 'temp/admin_base.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>view_camp_details</title>
+</head>
+<body>
+<center><h2 style="color: white">view camp details</h2>
+<table border="2" class="table table-bordered">
+	<tr style="color: white">
+		<th>Camp id</th>
+		<th>Camp name</th>
+		<th>Location</th>
+		<th>No of refugees</th>
+		<th>No of volunteers</th>
+	</tr >
+    {% for i in o %}
+	<tr style="color: white">
+		<td>{{ i.camp_id }}</td>
+		<td>{{ i.camp_name }}</td>
+		<td>{{ i.location }}</td>
+		<td>{{ i.no_of_refugees }}</td>
+		<td>{{ i.no_of_volunteers }}</td>
+	</tr>
+    {% endfor %}
+</table>
+</center>
+</body>
+
+</html>
+{% endblock %}

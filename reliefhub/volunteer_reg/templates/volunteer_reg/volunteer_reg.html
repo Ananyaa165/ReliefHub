@@ -1,0 +1,159 @@
+{% extends 'temp/homebase.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>volunteer_reg</title>
+{#    <style>#}
+{#        input[type="text"], input[type="email"], input[type="password"], input[type="submit"], input[type="file"], select {#}
+{#            border-radius: 10px; /* Slightly rounded corners */#}
+{#            padding: 8px;#}
+{#            border: 1px solid #ccc;#}
+{#            width: 90%; /* Adjust width to make the form fit */#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{#        input[type="submit"] {#}
+{#            background-color: #4CAF50; /* Green background */#}
+{#            color: white;#}
+{#            cursor: pointer;#}
+{#            border: none;#}
+{#            width: 45%; /* Adjust width of the submit button */#}
+{#            margin-top: 10px;#}
+{#        }#}
+{#        input[type="submit"]:hover {#}
+{#            background-color: #45a049; /* Darker green when hovering */#}
+{#        }#}
+{#        table {#}
+{#            width: 60%; /* Adjust table width for better fit */#}
+{#            margin: 0 auto;#}
+{#        }#}
+{#        td {#}
+{#            padding: 8px;#}
+{#            color: white;#}
+{#            vertical-align: middle;#}
+{#        }#}
+{#        body {#}
+{#            background-color: #333; /* Dark background */#}
+{#            color: white;#}
+{#            font-family: Arial, sans-serif;#}
+{#        }#}
+{#        h2 {#}
+{#            color: white;#}
+{#        }#}
+{#    </style>#}
+</head>
+<body>
+<center>
+    {% if msg %}
+        <div class="alert alert-info">
+            {{ msg }}
+        </div>
+    {% endif %}
+    <h2 style="color: white">Volunteer Registration</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <!-- Row 1 -->
+            <tr>
+                <td>Volunteer Name:</td>
+                <td><input type="text" name="name" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input type="text" name="number" pattern="[0-9]{10}" style="border-radius: 30px;" class="form-control" required></td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+                <td>Email ID:</td>
+                <td><input type="email" name="email" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+            <tr>
+                <td>Camp Name:</td>
+                <td>
+                    <select name="camp" class="form-control" style="border-radius: 30px;" required>
+                     <option value="" disabled selected>Select a camp</option>
+                        {% for i in a %}
+                            <option value="{{ i.camp_id }}">{{ i.camp_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Row 3 -->
+        <tr>
+    <td>Skill:</td>
+    <td>
+        <select name="skill" class="form-control" style="border-radius: 30px;" required>
+            <option value="" disabled selected>Select a skill</option>
+            <option value="Childcare">Childcare</option>
+            <option value="Pharmacist">Pharmacist</option>
+            <option value="Driving">Driving</option>
+            <option value="Cooking and Food Safety">Cooking and Food Safety</option>
+            <option value="Technical Expertise">Technical Expertise</option>
+            <option value="Emergency Response">Emergency Response</option>
+            <option value="Transportation Coordination">Transportation Coordination</option>
+            <option value="Counseling Skills">Counseling Skills</option>
+        </select>
+    </td>
+</tr>
+{#            <tr>#}
+{#                <td>Skill:</td>#}
+{#                <td><input type="dropdown" name="skill" class="form-control" style="border-radius: 30px;" required></td>#}
+{#            </tr>#}
+            <tr>
+                <td>Upload Document/ID:</td>
+                <td><input type="file" name="upload" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+                <td>Available Time:</td>
+                <td><input type="text" name="availability" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+            <tr>
+                <td>Designation:</td>
+                <td><input type="text" name="designation" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr>
+                <td>Gender:</td>
+                <td>
+                    <input type="radio" name="radio" value="male" required> Male
+                    <input type="radio" name="radio" value="female" required> Female
+                    <input type="radio" name="radio" value="other" required> Other
+                </td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="text" name="age" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+
+            <!-- Row 6 -->
+            <tr>
+                <td>Address:</td>
+                <td><input type="text" name="address" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+            <tr>
+                <td>Username (Email):</td>
+                <td><input type="text" name="username" class="form-control" style="border-radius: 30px;" required></td>
+            </tr>
+
+            <!-- Row 7 -->
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" style="border-radius: 30px;" class="form-control" required title="*should include combination of uppercase and lowercase letters, numbers, and special character with a minimum length of 8 characters"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center;" >
+                    <input type="submit" name="submit" value="Register">
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'temp/admin_base.html' %}
+{%  block base %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>collection_and_delivery</title>
+</head>
+<body>
+	<center>
+		<h2 style="color: white">Collection And Delivery</h2>
+		<table border="2"  class="table table-bordered">
+			<tr style="color: white">
+                <th>Delivery_id</th>
+				<th>Volunteer</th>
+				<th>Camp</th>
+				<th>Phone no (Public)</th>
+				<th>Item</th>
+				<th>Quantity</th>
+				<th>location (public)</th>
+				<th>Status</th>
+
+			</tr>
+            {% for i in o %}
+			<tr style="color: white">
+                <td>{{ i.delivery_id }}</td>
+				<td>{{ i.volunteer.volunteer_name }}</td>
+				<td>{{ i.camp.camp_name }}</td>
+				<td>{{ i.phone_no }}</td>
+				<td>{{ i.item }}</td>
+				<td>{{ i.quantity_c }}</td>
+				<td>{{ i.public_location }}</td>
+				<td>{{ i.status}}</td>
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+</body>
+</html>
+{%  endblock %}

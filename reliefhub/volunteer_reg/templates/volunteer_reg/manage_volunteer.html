@@ -1,0 +1,74 @@
+{% extends 'temp/admin_base2.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>manage_volunteers</title>
+    <style>
+        .table-wrapper {
+            width: 150%; /* Adjust as needed */
+            height: 400px; /* Fixed height for the vertical scroll */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            border: 1px solid #ccc; /* Optional border */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%; /* Full width inside the container */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<center>
+<h2 style="color: white" >Manage Volunteers</h2>
+<div class="table table-responsive">
+    <div class="table-wrapper">
+		<table border="2" class="table table-bordered">
+			<tr style="color: white">
+				<th>Volunteer id</th>
+				<th>Volunteer name</th>
+				<th>Phone no</th>
+                <th>Documents</th>
+				<th>Camp</th>
+				<th>Skill</th>
+				<th>Availability</th>
+				<th>Designation</th>
+				<th>Gender</th>
+				<th>Age</th>
+				<th>Address</th>
+				<th>Status</th>
+			</tr>
+            {% for i in o %}
+			<tr style="color: white">
+				<td>{{ i.volunteer_id }}</td>
+				<td>{{ i.volunteer_name }}</td>
+				<td>{{ i.volunteer_ph }}</td>
+                <td><img src="/static/{{ i.document }}" height="100" width="150"></td>
+				<td>{{ i.camp.camp_name}}</td>
+				<td>{{ i.skill }}</td>
+				<td>{{ i.availability }}</td>
+				<td>{{ i.designation }}</td>
+				<td>{{ i.gender }}</td>
+				<td>{{ i.age }}</td>
+				<td>{{ i.address }}</td>
+				<td>{{ i.status }}</td>
+                <td><a href="/volunteer_reg/ approve/{{ i.volunteer_id }}">Accept</a></td>
+				<td><a href="/volunteer_reg/ rejected/{{ i.volunteer_id }}">Reject</a></td>
+			<tr>
+            {% endfor %}
+		</table>
+     </div>
+</div>
+</center>
+</body>
+</html>
+{% endblock %}
