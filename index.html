@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voyagio Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+</head>
+<body class="font-sans bg-gray-100">
+
+  
+  <div id="header"></div>
+
+  
+  <section class="relative h-screen bg-cover bg-center text-white flex items-center justify-center" style="background-image: url('media/travel.jpg')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative text-center z-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Explore the World, One Journey at a Time</h1>
+      <p class="text-lg mb-6">Custom travel plans designed for your taste, time, and budget</p>
+      <a href="form.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">Book Now</a>
+    </div>
+  </section>
+
+  
+  <section id="places" class="p-6 bg-white">
+    <h2 class="text-3xl font-bold mb-4 text-center">Popular Destinations</h2>
+    <div class="grid md:grid-cols-3 gap-6" id="destinations">
+      
+    </div>
+  </section>
+
+  
+  <section id="gallery" class="p-6">
+    <h2 class="text-3xl font-bold mb-4 text-center">Gallery</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <img src="media/travel.jpg" class="rounded shadow" alt="Gallery Image 1">
+      <img src="media/travel.jpg" class="rounded shadow" alt="Gallery Image 2">
+      <img src="media/travel.jpg" class="rounded shadow" alt="Gallery Image 3">
+    </div>
+  </section>
+
+  
+  <section class="p-6">
+    <h2 class="text-3xl font-bold mb-4 text-center">Promotional Video</h2>
+    <video controls autoplay class="w-full max-w-3xl mx-auto" width="640" height="360">
+      <source src="media/video.mp4" type="video/mp4" />
+      <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English"/>
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  
+  <section class="p-6 flex flex-col justify-center items-center">
+    <h2 class="text-3xl font-bold mb-4">Relaxing Music</h2>
+    <audio controls class="w-full max-w-md">
+      <source src="media/bg_audio.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+  
+  <section id="contact" class="p-6 bg-white">
+    <h2 class="text-3xl font-bold mb-4 text-center">Contact Us</h2>
+    <div class="text-center text-gray-700">
+      <p>Email: contact@voyagio.com</p>
+      <p>Phone: +91 98765 43210</p>
+      <p>Address: 123, Explore Street, Adventure City</p>
+    </div>
+  </section>
+
+  
+  <div id="footer"></div>
+</body>
+<script src="script.js"> </script>
+</html>

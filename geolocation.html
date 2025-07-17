@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+    <h2>GEOLOCATION DEMO</h2>
+    <p>Lattitude:<span id="lat"></span></p>
+    <p>Longitude:<span id="lon"></span></p>
+    <p>Timestamp:<span id="timestamp"></span></p>
+    <p id="error" style="color:red;"></p>
+    <iframe width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-129.59472656250003%2C24.5271348225978%2C-73.08105468750001%2C49.41097319969587&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?#map=5/38.01/-101.34">View Larger Map</a></small>
+    </main>
+    <script>
+        window.onload=function(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(getPositions,showError);
+            }
+            else{
+                console.log("Browser doesn't support geolocation")
+            }
+        }
+        function getPositions(position){
+            document.getElementById("lat").innerText=position.coords.latitude;
+            document.getElementById("lon").innerText=position.coords.longitude;
+            document.getElementById("timestamp").innerText=new Date(position.timestamp)
+        }
+        function showError(error){
+            let msg="";
+            switch(error.code){
+                case error.PERMISSION_DENIED:
+                    msg="Permission was denied";
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    msg="not able to fetch the user position";
+                    break;
+                case error.TIMEOUT:
+                    msg="TIME OUT";
+                    break;
+                case error.UNKNOWN_ERROR:
+                    msg="UNKNOWN ERROR";
+                    break;
+            }
+            displayError(msg)
+        }
+        function displayError(msg){
+            document.getElementById("error").innerText=msg;
+        }
+    </script>
+</body>
+</html>
